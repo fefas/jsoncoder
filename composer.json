@@ -12,7 +12,17 @@
         }
     ],
 
+    "autoload": {
+        "psr-4": {
+            "Fefas\\Jsoncoder\\": "src/"
+        }
+    },
+
     "minimum-stability": "stable",
+
+    "require": {
+        "php": ">=php7.1"
+    },
 
     "require-dev": {
         "phpunit/phpunit": "^6.5"
