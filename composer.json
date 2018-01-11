@@ -12,6 +12,10 @@
         }
     ],
 
+    "scripts": {
+        "test:unit": "phpunit --colors=always"
+    },
+
     "autoload": {
         "psr-4": {
             "Fefas\\Jsoncoder\\": "src/"
