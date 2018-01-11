@@ -1,0 +1,16 @@
+{
+    "name": "fefas/jsoncoder",
+    "description": "Json encoder and decoder as a class",
+
+    "type": "library",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Felipe Martins",
+            "email": "me@fefas.net"
+        }
+    ],
+
+    "minimum-stability": "stable",
+}
