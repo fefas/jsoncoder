@@ -40,7 +40,7 @@ class JsonTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-                "The given string '$invalidJsonString' isn't a valid JSON"
+            "The given string '$invalidJsonString' isn't a valid JSON"
         );
 
         Json::createFromString($invalidJsonString);
