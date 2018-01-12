@@ -10,35 +10,42 @@ class JsonTest extends TestCase
     /**
      * @test
      */
-    public function returnStringUsingMagicMethod()
+    public function allowCastingToStringByMagicMethod()
     {
-        $json = Json::createFromString('{"field":"value"}');
+        $json = Json::createFromString('{"field1":"value1","field2":"value2"}');
 
         $toStringResult = $json->__toString();
 
-        $this->assertEquals('{"field":"value"}', $toStringResult);
+        $this->assertEquals('{"field1":"value1","field2":"value2"}', $toStringResult);
     }
 
     /**
      * @test
      */
-    public function returnValueAsArray()
+    public function convertJsonValueToString()
     {
-        $json = Json::createFromString('{"field":"value"}');
+        $json = Json::createFromString('{"field1":"value1","field2":"value2"}');
+        $expectedArray = [
+            'field1' => 'value1',
+            'field2' => 'value2',
+        ];
 
-        $toArrayResult = $this->json->toArray();
+        $toArrayResult = $json->toArray();
 
-        $this->assertEquals(['field' => 'value'], $toArrayResult);
+        $this->assertEquals($expectedArray, $toArrayResult);
     }
 
     /**
      * @test
      */
-    public function buildFromAnArray()
+    public function buildItselfByGivenAnArray()
     {
-        $expectedJson = Json::createFromString('{"field":"value"}');
+        $expectedJson = Json::createFromString('{"field1":"value1","field2":"value2"}');
 
-        $jsonFromArray = Json::createFromArray(['field' => 'value']);
+        $jsonFromArray = Json::createFromArray([
+            'field1' => 'value1',
+            'field2' => 'value2',
+        ]);
 
         $this->assertEquals($expectedJson, $jsonFromArray);
     }
