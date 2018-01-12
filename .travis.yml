@@ -11,5 +11,5 @@ script:
   - composer run test:unit -- --coverage-clover build/logs/clover.xml --whitelist src
 
 after_success:
-  - composer require php-coveralls/php-coveralls '^2.0'
-  - ./vendor/bin/coveralls -v --coverage_clover=build/logs/clover.xml
+  - composer require php-coveralls/php-coveralls '^2.0' --dev
+  - ./vendor/bin/php-coveralls -v --coverage_clover=build/logs/clover.xml
