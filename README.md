@@ -1,4 +1,5 @@
 [![Build Status](https://img.shields.io/travis/fefas/jsoncoder/master.svg?style=flat-square)](https://travis-ci.org/fefas/jsoncoder)
+[![Build Status](https://img.shields.io/coveralls/github/fefas/jsoncoder.svg?style=flat-square)](https://coveralls.io/github/fefas/jsoncoder)
 
 [![Latest Stable Version](https://poser.pugx.org/fefas/jsoncoder/v/stable?format=flat-square)](https://packagist.org/packages/fefas/jsoncoder)
 [![Total Downloads](https://poser.pugx.org/fefas/jsoncoder/downloads?format=flat-square)](https://packagist.org/packages/fefas/jsoncoder)
