@@ -10,13 +10,25 @@ class JsonTest extends TestCase
     /**
      * @test
      */
-    public function castToStringByMagicMethod()
+    public function returnStringUsingMagicMethod()
     {
         $json = Json::createFromString('{"field":"value"}');
 
         $toStringResult = $json->__toString();
 
         $this->assertEquals('{"field":"value"}', $toStringResult);
+    }
+
+    /**
+     * @test
+     */
+    public function returnValueAsArray()
+    {
+        $json = Json::createFromString('{"field":"value"}');
+
+        $toArrayResult = $this->json->toArray();
+
+        $this->assertEquals(['field' => 'value'], $toArrayResult);
     }
 
     /**

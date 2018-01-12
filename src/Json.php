@@ -13,6 +13,11 @@ class Json
         $this->value = $value;
     }
 
+    public function toArray(): array
+    {
+        return $this->value;
+    }
+
     public function __toString(): string
     {
         return json_encode($this->value);
