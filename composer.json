@@ -1,6 +1,7 @@
 {
     "name": "fefas/jsoncoder",
     "description": "Json encoder and decoder as a class",
+    "keywords": ["json", "json encoder", "json decoder"],
 
     "type": "library",
     "license": "MIT",
