@@ -6,39 +6,56 @@ use InvalidArgumentException;
 
 class Json
 {
-    private $value;
+    private $decodedValue;
+    private $originalString;
 
-    private function __construct(array $value)
+    private function __construct($decodedValue, string $originalString = null)
     {
-        $this->value = $value;
+        $this->decodedValue = $decodedValue;
+        $this->originalString = $originalString;
     }
 
-    public function toArray(): array
+    public function originalString(): ?string
     {
-        return $this->value;
+        return $this->originalString;
     }
 
-    public function __toString(): string
+    public function decode()
     {
-        return json_encode($this->value);
+        return $this->decodedValue;
     }
 
-    public static function createFromString(string $string): self
+    public function __toString()
     {
-        $decodeToArray = true;
-        $decodedArray = json_decode($string, $decodeToArray);
+        return json_encode($this->decodedValue);
+    }
+
+    public static function create($value): self
+    {
+        if (is_object($value)) {
+            throw new InvalidArgumentException("Cannot create a JSON from an object");
+        }
+
+        return new self($value);
+    }
+
+    public static function createFromString(string $jsonString): self
+    {
+        $decodedValue = self::decodeJsonString($jsonString);
 
         if (JSON_ERROR_NONE !== json_last_error()) {
             throw new InvalidArgumentException(
-                "The given string '$string' isn't a valid JSON"
+                "The given string '$jsonString' isn't a valid JSON"
             );
         }
 
-        return new self($decodedArray);
+        return new self($decodedValue, $jsonString);
     }
 
-    public static function createFromArray(array $array): self
+    private static function decodeJsonString(string $jsonString)
     {
-        return new self($array);
+        $decodeToAssoc = true;
+
+        return json_decode($jsonString, $decodeToAssoc);
     }
 }
