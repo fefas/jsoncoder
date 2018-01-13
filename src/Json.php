@@ -30,6 +30,19 @@ class Json
         return json_encode($this->decodedValue);
     }
 
+    public function isEqualTo(self $jsonToCompare): bool
+    {
+        $thisDecoded = $this->decode();
+        $thatDecoded = $jsonToCompare->decode();
+
+        if (!is_array($thisDecoded) || !is_array($thatDecoded)) {
+            return $thisDecoded === $thatDecoded;
+        }
+
+        //var_dump($thisDecoded, $thatDecoded);
+        return $thisDecoded == $thatDecoded;
+    }
+
     public static function create($value): self
     {
         if (is_object($value)) {
