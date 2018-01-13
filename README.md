@@ -9,4 +9,32 @@
 
 # Jsoncoder
 
-Jsoncode is a library claiming for a way to encode and decode JSON as a class.
+Jsoncode is the result of I claiming by a way to encode, decode and whatever
+JSON using classes with error handling intead of awful functions.
+
+## Installation
+
+Install it using [Composer](https://getcomposer.org/):
+
+```shell
+$ composer require fefas/jsoncoder
+```
+
+## Usage
+
+```php
+<?php
+
+use Fefas\Jsoncoder\Json;
+
+$json1 = Json::createFromString('{"field":"value"}'); // from a json string
+$json2 = Json::create(['field' => 'anotherValue']); // from PHP values
+
+echo $json1; // {"field":"value"}
+echo $json2; // {"field":"anotherValue"}
+
+$json1->decode(); // ['field' => 'value']
+$json2->decode(); // ['field' => 'anotherValue']
+
+$json1->isEqualTo($json2); // false
+```
