@@ -39,7 +39,6 @@ class Json
             return $thisDecoded === $thatDecoded;
         }
 
-        //var_dump($thisDecoded, $thatDecoded);
         return $thisDecoded == $thatDecoded;
     }
 
